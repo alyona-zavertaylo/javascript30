@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Array Cardio day 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+      <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <script>
+      const people = [
+        { name: "Wes", year: 1988 },
+        { name: "Kait", year: 1986 },
+        { name: "Irv", year: 1970 },
+        { name: "Lux", year: 2015 }
+      ];
+      const comments = [
+        { text: "Love this!", id: 523423 },
+        { text: "Super good", id: 823423 },
+        { text: "You are the best", id: 2039842 },
+        { text: "Ramen in my fav food ever", id: 123523 },
+        { text: "Nice Nice Nice!", id: 542328 }
+      ];
+
+      // Some and Every Checks
+      // Array.prortype.some()
+
+      //   const isAdult = people.some(people => {
+      //     const currentYear = new Date().getFullYear();
+      //     if (currentYear - people.year >= 19) {
+      //       return true;
+      //     }
+      //   });
+
+      const isAdult = people.some(people => {
+        return new Date().getFullYear() - people.year >= 19;
+      });
+      console.log({ isAdult });
+    
+    //   Array.prototype.every()
+    const everyAdult = people.every(people => {
+        return new Date().getFullYear() - people.year >= 19;
+      });
+      console.log({ everyAdult });
+
+    //   Array.prototype.find
+      const comment = comments.find((comment) =>  comment.id == 823423 );
+      console.log({comment});
+
+    //   Array.prototype.finfIndex()
+
+    const indexElem = comments.findIndex(indexElem => indexElem.id === 823423);
+    console.log({indexElem});
+    comments.splice(indexElem, 1);
+
+    const newComments = [
+        ...comments.slice(0, indexElem),
+        ...comments.slice(indexElem + 1)
+    ];
+    </script>
+  </body>
+</html>
